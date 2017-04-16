@@ -1,6 +1,6 @@
 {
   "name": "systemjs-multibundle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Automatically generate multiple System.js bundles",
   "main": "lib/index.js",
   "scripts": {
