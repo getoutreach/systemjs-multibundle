@@ -41,7 +41,7 @@ async function mapEntryPoints(builder, entryPoints, { traceOpts }) {
   for (let expression in entryPoints) {
     let { priority } = entryPoints[expression];
     allPriorities.add(priority);
-    let tree = await builder.trace(expression, traceOpts);
+    let tree = await builder.trace(expression, {...traceOpts});
     walkEntryPoint(
       tree,
       expression,
@@ -187,7 +187,7 @@ async function doBundle(
     } else {
       outFile = outFileFn(index++, bundle, meta);
     }
-    let output = await builder.bundle(tree, outFile, traceOpts);
+    let output = await builder.bundle(tree, outFile, {...traceOpts});
     if (meta.include !== false) {
       bundleConfig[outFile] = output.modules;
     }

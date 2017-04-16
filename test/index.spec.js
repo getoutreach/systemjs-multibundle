@@ -62,8 +62,8 @@ describe("multibundle()", function() {
   it("creates multiple bundles", async function() {
     let result = await this.subject;
 
-    expect("tmp/test/build/jspm.bundles.js").to.be.a.file;
-    expect("tmp/test/build/main.hs").to.be.a.file;
+    expect("tmp/testbuild/jspm.bundles.js").to.be.a.file();
+    expect("tmp/testbuild/main.js").to.be.a.file();
   });
 
   context("with advanced trace options", function() {
@@ -72,7 +72,9 @@ describe("multibundle()", function() {
       normalize: true,
       inlineConditions: true,
       browser: true,
+      node: false,
       production: true,
+      dev: false,
       mangle: false,
       minify: false
     }));
@@ -80,7 +82,7 @@ describe("multibundle()", function() {
     it("applies trace options", async function() {
       let result = await this.subject;
 
-      expect("tmp/test/build/main.hs").to.be.a.file;
+      expect("tmp/testbuild/main.js").to.be.a.file();
     });
   });
 });
